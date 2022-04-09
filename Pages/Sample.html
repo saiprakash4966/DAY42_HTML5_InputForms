@@ -15,11 +15,13 @@
             <input type="text" id="text" name="text">
             <error-output class="text-error" id="text-error" for="text"></error-output>
         </div>
-        <div>
-            <label for="password">password input type: </label>
-            <input type="password" id="password" name="password" required>
-            <error-output class="pwd-error" id="pwd-error" for="password"></error-output>
-        </div>
+        
+            <div>
+                <label for="pwd">Enter Password: </label>
+                <input type="password" id="pwd" name="pwd" placeholder="*********" required >
+                <error-output class="pwd-error" for="pwd"></error-output>
+            </div>
+     
         <div>
             <label for="email">email input type: </label>
             <input type="email" id="email" name="email" required>
@@ -69,7 +71,15 @@
                 textError.textContent = "Name is incorrect";
             }
         });
-
+         //code for password validations using regex pattern
+         const pwd = document.querySelector('#pwd');
+         const pwdError = document.querySelector('.pwd-error');
+         pwd.addEventListener('input',function(){
+         let pwdRegex = RegExp('^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#!@%&])[a-zA-Z0-9].{8,}$');
+         if(pwdRegex.test(pwd.value))
+        pwdError.textContent="";
+        else pwdError.textContent="Invalid Password";
+        });
         //code for input email validations using regex pattern
         const email = document.querySelector('#email');
         const emailError = document.querySelector('.email-error');
@@ -78,7 +88,7 @@
             if (emailRegex.test(email.value)) {
                 emailError.textContent = "";
             } else {
-                emailError.textContent = "email is incorrect";
+                emailError.textContent = "Email is incorrect";
             }
         });
         //code for phone number validations using regex pattern
@@ -92,17 +102,7 @@
                 telError.textContent = "Phone number is incorrect";
             }
         });
-        //code for password validations using regex pattern
-        const pwd = document.querrySelector('#password');
-        const pwdError = document.querrySelector('.pwd-error');
-        pwd.addEventListener('input', function () {
-            let pwdRegex = RegExp('^[a-zA-Z]{8,}');
-            if (pwdRegex.test(pwd.value)) {
-                pwdError.textContent = "";
-            } else {
-                pwdError.textContent = "Incorrect password, Password should contain minimum 8 Characters";
-            }
-        });
+       
         
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
