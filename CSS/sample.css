@@ -29,6 +29,10 @@ form{
     color:red;
     font-weight:bold;
 }
+.pwd-error{
+    color:red;
+    font-weight:bold;
+}
 div{
     margin-bottom: 20px;
     display: flex;
