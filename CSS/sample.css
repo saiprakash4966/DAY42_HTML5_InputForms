@@ -19,13 +19,16 @@ body{
     margin-bottom: 20px;
 }
 .text-error{
-    font:red;
+    color:red;
     font-weight: bold;
 }
 form{
     margin-top: 50px;
 }
-
+.email-error{
+    color:red;
+    font-weight:bold;
+}
 div{
     margin-bottom: 20px;
     display: flex;
