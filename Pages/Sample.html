@@ -35,6 +35,7 @@
         <div>
             <label for="tel">tel input type: </label>
             <input type="tel" id="tel" name="tel">
+            <error-output class="tel-error" id="tel-error" for="email"></error-output>
         </div>
         <div>
             <label for="search">search input type: </label>
@@ -77,6 +78,17 @@
                 emailError.textContent = "";
             } else {
                 emailError.textContent = "email is incorrect";
+            }
+        });
+        //code for phone number validations using regex pattern
+        const tel = document.querySelector('#tel');
+        const telError = document.querySelector('.tel-error');
+        tel.addEventListener('input', function () {
+            let telRegex = RegExp('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$');
+            if (telRegex.test(tel.value)) {
+                telError.textContent = "";
+            } else {
+                telError.textContent = "Phone number is incorrect";
             }
         });
      
